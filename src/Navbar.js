@@ -25,15 +25,39 @@ function Navbar() {
   </h2>
 </div>
 
-  {/* Menu */}
-  <ul style={styles.menu}>
-    <li style={styles.menuItem}>Home</li>
-    <li style={styles.menuItem}>About</li>
-    <li style={styles.menuItem}>Services</li>
-    <li style={styles.menuItem}>Dashboard</li>
-    <li style={styles.menuItem}>Contact</li>
-  </ul>
+ <ul style={styles.menu}>
 
+  <li style={styles.menuItem}>
+    <a href="/home" style={styles.link}>
+      Home
+    </a>
+  </li>
+
+  <li style={styles.menuItem}>
+    <a href="/about" style={styles.link}>
+      About
+    </a>
+  </li>
+
+  <li style={styles.menuItem}>
+    <a href="/services" style={styles.link}>
+      Services
+    </a>
+  </li>
+
+  <li style={styles.menuItem}>
+    <a href="/dashboard" style={styles.link}>
+      Dashboard
+    </a>
+  </li>
+
+  <li style={styles.menuItem}>
+    <a href="/contact" style={styles.link}>
+      Contact
+    </a>
+  </li>
+
+</ul>
   {/* Buttons */}
   <div style={styles.buttonSection}>
 
@@ -44,16 +68,15 @@ function Navbar() {
   Login
 </button>
 
-    <button style={styles.navButton}>
-      Get Started
-    </button>
+ <button style={styles.navButton}>
+  Get Started
+</button>
 
-  </div>
-
+</div> 
 </nav>
 
       {/* Home Section */}
-      <section style={styles.section}>
+      <section id="home" style={styles.heroSection}>
         <div style={styles.textSection}>
           <h1>Welcome to Stackly</h1>
 
@@ -65,7 +88,7 @@ function Navbar() {
       </section>
 
       {/* About Section */}
-<section style={styles.sectionLight}>
+  <section id="about" style={styles.sectionLight}>
   <div style={styles.textSection}>
     <h1>About Us</h1>
 
@@ -106,7 +129,7 @@ function Navbar() {
   </div>
 </section>
     {/* Services Section */}
-<section style={styles.section}>
+<section id="services" style={styles.section}>
   <div style={styles.textSection}>
     <h1>Our Services</h1>
 
@@ -280,7 +303,7 @@ function Navbar() {
 )}
 
       {/* Contact Section */}
-      <section style={styles.contact}>
+      <section id="contact" style={styles.contact}>
         <h1>Contact Us</h1>
 
         <p>Email: info@stackly.com</p>
@@ -304,11 +327,11 @@ const styles = {
     top: 0,
   },
 
-logo: {
-  fontSize: "30px",
-  fontWeight: "bold",
-  cursor: "pointer",
-},
+  logo: {
+    fontSize: "30px",
+    fontWeight: "bold",
+    cursor: "pointer",
+  },
 
   menu: {
     display: "flex",
@@ -318,8 +341,18 @@ logo: {
   },
 
   menuItem: {
-  cursor: "pointer",
-},
+    cursor: "pointer",
+  },
+
+  buttonSection: {
+    display: "flex",
+    gap: "15px",
+  },
+
+  link: {
+    color: "white",
+    textDecoration: "none",
+  },
 
   section: {
     display: "flex",
@@ -352,37 +385,55 @@ logo: {
     backgroundColor: "#0f172a",
     color: "white",
   },
+
   loginSection: {
-  display: "flex",
-  justifyContent: "center",
-  padding: "80px",
-  backgroundColor: "#f8fafc",
-},
+    display: "flex",
+    justifyContent: "center",
+    padding: "80px",
+    backgroundColor: "#f8fafc",
+  },
 
-loginBox: {
-  width: "350px",
-  padding: "40px",
-  backgroundColor: "white",
-  borderRadius: "10px",
-  boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
-  display: "flex",
-  flexDirection: "column",
-  gap: "20px",
-},
+  loginBox: {
+    width: "350px",
+    padding: "40px",
+    backgroundColor: "white",
+    borderRadius: "10px",
+    boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+  },
 
-input: {
-  padding: "12px",
-  fontSize: "16px",
-},
+  input: {
+    padding: "12px",
+    fontSize: "16px",
+  },
 
-submitButton: {
-  padding: "12px",
-  backgroundColor: "#2563eb",
-  color: "white",
-  border: "none",
-  cursor: "pointer",
-  borderRadius: "5px",
-},
-};
+  loginButton: {
+    padding: "10px 22px",
+    backgroundColor: "#2563eb",
+    color: "white",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
+  },
 
+  navButton: {
+    padding: "10px 22px",
+    backgroundColor: "white",
+    color: "#0f172a",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
+  },
+
+  submitButton: {
+    padding: "12px",
+    backgroundColor: "#2563eb",
+    color: "white",
+    border: "none",
+    cursor: "pointer",
+    borderRadius: "5px",
+  },
+}
 export default Navbar;
