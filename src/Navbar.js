@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import servicesImage from "./images/services.jpg";
 import uxImage from "./images/ux.jpg";
@@ -7,22 +7,48 @@ import corporateImage from "./images/corporate.jpg";
 import webImage from "./images/web.jpg";
 
 function Navbar() {
+
+  const [showLogin, setShowLogin] = useState(false);
   return (
     <div>
 
-      {/* Navbar */}
+    {/* Navbar */}
 <nav style={styles.navbar}>
 
-  <div style={styles.logoSection}>
-    <h2 style={styles.logo}>STACKLY</h2>
-  </div>
+  {/* Logo */}
+<div style={styles.logoSection}>
+  <h2
+    style={styles.logo}
+    onClick={() => window.scrollTo(0, 0)}
+  >
+    STACKLY
+  </h2>
+</div>
 
+  {/* Menu */}
   <ul style={styles.menu}>
-  <li style={styles.menuItem}>Home</li>
-  <li style={styles.menuItem}>About</li>
-  <li style={styles.menuItem}>Services</li>
-  <li style={styles.menuItem}>Contact</li>
-</ul>
+    <li style={styles.menuItem}>Home</li>
+    <li style={styles.menuItem}>About</li>
+    <li style={styles.menuItem}>Services</li>
+    <li style={styles.menuItem}>Dashboard</li>
+    <li style={styles.menuItem}>Contact</li>
+  </ul>
+
+  {/* Buttons */}
+  <div style={styles.buttonSection}>
+
+  <button
+  style={styles.loginButton}
+  onClick={() => setShowLogin(true)}
+>
+  Login
+</button>
+
+    <button style={styles.navButton}>
+      Get Started
+    </button>
+
+  </div>
 
 </nav>
 
@@ -222,6 +248,37 @@ function Navbar() {
         </div>
       </section>
 
+      {/* Login Section */}
+{showLogin && (
+
+<section style={styles.loginSection}>
+
+  <div style={styles.loginBox}>
+
+    <h1>Login</h1>
+
+    <input
+      type="text"
+      placeholder="Enter Email"
+      style={styles.input}
+    />
+
+    <input
+      type="password"
+      placeholder="Enter Password"
+      style={styles.input}
+    />
+
+    <button style={styles.submitButton}>
+      Submit
+    </button>
+
+  </div>
+
+</section>
+
+)}
+
       {/* Contact Section */}
       <section style={styles.contact}>
         <h1>Contact Us</h1>
@@ -247,10 +304,11 @@ const styles = {
     top: 0,
   },
 
-  logo: {
-    fontSize: "28px",
-    fontWeight: "bold",
-  },
+logo: {
+  fontSize: "30px",
+  fontWeight: "bold",
+  cursor: "pointer",
+},
 
   menu: {
     display: "flex",
@@ -260,8 +318,8 @@ const styles = {
   },
 
   menuItem: {
-    cursor: "pointer",
-  },
+  cursor: "pointer",
+},
 
   section: {
     display: "flex",
@@ -294,6 +352,37 @@ const styles = {
     backgroundColor: "#0f172a",
     color: "white",
   },
+  loginSection: {
+  display: "flex",
+  justifyContent: "center",
+  padding: "80px",
+  backgroundColor: "#f8fafc",
+},
+
+loginBox: {
+  width: "350px",
+  padding: "40px",
+  backgroundColor: "white",
+  borderRadius: "10px",
+  boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
+  display: "flex",
+  flexDirection: "column",
+  gap: "20px",
+},
+
+input: {
+  padding: "12px",
+  fontSize: "16px",
+},
+
+submitButton: {
+  padding: "12px",
+  backgroundColor: "#2563eb",
+  color: "white",
+  border: "none",
+  cursor: "pointer",
+  borderRadius: "5px",
+},
 };
 
 export default Navbar;
